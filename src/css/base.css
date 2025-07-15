@@ -5,28 +5,57 @@
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-
   color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-width: 100vw;
-  min-height: 100vh;
-  margin: 0;
+  height: 100vh;
+  margin: 12px;
 }
 
 main {
   flex-grow: 1;
+  margin-top: 28px;
 }
-main:has(.back-link) {
-  text-align: center;
+
+.loader {
+  margin-top: 44px;
+  display: none;
+  width: 48px;
+  height: 48px;
+  /* display: inline-block; */
+  justify-content: center;
+  position: relative;
+}
+
+.loader::after,
+.loader::before {
+  content: '';
+  width: 48px;
+  height: 48px;
+  border: 2px solid #787777;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  animation: rotation 2s ease-in-out infinite;
+}
+
+.loader::after {
+  border-color: #FF3D00;
+  animation-delay: 1s;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.is-visible {
+  display: inline-block;
 }
